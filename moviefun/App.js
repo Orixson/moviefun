@@ -1,43 +1,42 @@
 import React, { Component } from 'react'
-import { View, ScrollView } from 'react-native'
-import Header from './src/components/uikit/Header'
-import ImageCard from './src/components/uikit/ImageCard'
-import Layout  from './src/components/uikit/Layout'
+import { createDrawerNavigator } from 'react-navigation'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import One from './src/screen1'
+import Two from './src/screen2'
+import Three from './src/screen3'
+import { BLUE } from './constants'
 
-const url = 'https://gitlab.com/gHashTag/react-native-init/raw/master/db.json' // на github проблемы c запросом, поэтому ссылку поменял
-
-export default class App extends Component {
-  state = {
-    title: 'STAR GATE',
-    data: []
-  }
-
-  componentDidMount = async () => {
-    try {
-      const response = await fetch(url, {
-        method: 'GET'
-      })
-      const data = await response.json()
-      this.setState({ data })
-    } catch (e) {
-      console.warn('e', e) // eslint-disable-line
-      throw e
+export default createDrawerNavigator(
+  {
+    Screen1: {
+      screen: One,
+      navigationOptions: {
+        drawerLabel: 'Star Gate',
+        drawerIcon: ({ tintColor }) => <MaterialIcons name="grade" size={24} style={{ color: tintColor }} />
+      }
+    },
+    Screen2: {
+      screen: Two,
+      navigationOptions: {
+        drawerLabel: 'Batman',
+        drawerIcon: ({ tintColor }) => <MaterialIcons name="favorite" size={24} style={{ color: tintColor }} />
+      }
+    },
+    Screen3: {
+      screen: Three,
+      navigationOptions: {
+        drawerLabel: 'Spiderman',
+        drawerIcon: ({ tintColor }) => <MaterialIcons name="pets" size={24} style={{ color: tintColor }} />
+      }
+    }
+  },
+  {
+    initialRouteName: 'Screen1',
+    contentOptions: {
+      activeTintColor: BLUE,
+      itemsContainerStyle: {
+        marginVertical: 65
+      }
     }
   }
-
-  render() {
-    const { title, data } = this.state
-    return (
-      <View>
-        <Header title={title} />
-        <ScrollView>
-          <Layout>
-            {data.map(item => (
-              <ImageCard data={item} key={item.id} />
-            ))}
-          </Layout>
-        </ScrollView>
-      </View>
-    )
-  }
-}
+)

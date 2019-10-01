@@ -1,31 +1,45 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { TouchableOpacity, View, Text, StyleSheet } from 'react-native'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import { w } from '../../../constants'
 
-const Header = props => {
+const Header = ({ detail, leftIcon, leftColor, headerColor, title, onPress }) => {
   return (
-    <View style={styles.viewStyle}>
-      <Text style={styles.textStyle}>{props.title}</Text>
+    <View style={[styles.viewStyle, { backgroundColor: headerColor }]}>
+      {leftIcon && (
+        <TouchableOpacity onPress={onPress}>
+          <Ionicons name={leftIcon} style={[styles.leftButtonStyle, { paddingLeft: detail ? 10 : 25 }]} color={leftColor} />
+        </TouchableOpacity>
+      )}
+      <Text numberOfLines={1} ellipsizeMode="tail" style={[styles.textStyle, { paddingLeft: leftIcon ? 10 : 0 }]}>
+        {title}
+      </Text>
     </View>
   )
 }
-
 const styles = StyleSheet.create({
   viewStyle: {
-    backgroundColor: '#30d0fe',
-    height: 116,
+    flexDirection: 'row',
     justifyContent: 'center',
-    paddingLeft: 22,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     elevation: 2,
-    position: 'relative'
+    position: 'relative',
+    height: 122
   },
   textStyle: {
     color: '#fff',
     fontSize: 28,
+    width: w - 40,
     fontFamily: 'AvenirNext-DemiBold',
     paddingTop: 75
+
+  },
+  leftButtonStyle: {
+    paddingTop: 50,
+    fontSize: 35
+
   }
 })
 

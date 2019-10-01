@@ -1,18 +1,18 @@
 import React from 'react'
-import { Image, View, Text, StyleSheet } from 'react-native'
+import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { w } from '../../../constants'
 
-
-
-const ImageCard = ({ data }) => {
+const ImageCard = ({ data, onPress }) => {
   const { image, name } = data
   return (
-    <View style={styles.container}>
-      <View style={styles.sub}>
-        <Image style={styles.cover} source={{ uri: image }} />
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.container}>
+        <View style={styles.sub}>
+          <Image style={styles.cover} source={{ uri: image.medium }} />
+        </View>
+        <Text style={styles.h1}>{name.toUpperCase()}</Text>
       </View>
-      <Text style={styles.h1}>{name.toUpperCase()}</Text>
-    </View>
+    </TouchableOpacity>
   )
 }
 
