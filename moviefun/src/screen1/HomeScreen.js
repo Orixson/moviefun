@@ -1,18 +1,18 @@
-import React, { Component } from 'react'
-import { View } from 'react-native'
-import Header from '../components/uikit/Header'
-import Layout from '../components/uikit/Layout'
-import ImageCard from '../components/uikit/ImageCard'
-import { STARGATE_DETAILS } from '../routes'
-import { WHITE, BLUE } from '../../constants'
+import React, { Component } from 'react';
+import { View } from 'react-native';
+import Header from '../components/uikit/Header';
+import Layout from '../components/uikit/Layout';
+import ImageCard from '../components/uikit/ImageCard';
+import { STARGATE_DETAILS } from '../routes';
+import { WHITE, BLUE } from '../../constants';
 
-const url = 'http://api.tvmaze.com/search/shows?q=stargate'
+const url = 'http://api.tvmaze.com/search/shows?q=stargate';
 
 export default class Main extends Component {
   state = {
     title: 'STAR GATE',
-    data: []
-  }
+    data: [],
+  };
 
   componentDidMount = async () => {
     try {
@@ -20,17 +20,17 @@ export default class Main extends Component {
       const data = await response.json()
       this.setState({ data })
     } catch (e) {
-      throw e
+      throw e;
     }
-  }
+  };
 
-  onGoBack = someDataFromChildren => {
+  onGoBack = (someDataFromChildren) => {
     console.log('someDataFromChildren', someDataFromChildren) //eslint-disable-line
-  }
+  };
 
   render() {
-    const { title, data } = this.state
-    const { navigation } = this.props
+    const { title, data } = this.state;
+    const { navigation } = this.props;
     return (
       <View>
         <Header
@@ -41,15 +41,20 @@ export default class Main extends Component {
           leftColor={WHITE}
         />
         <Layout>
-          {data.map(item => (
+          {data.map((item) => (
             <ImageCard
               data={item.show}
               key={item.show.id}
-              onPress={() => navigation.navigate(STARGATE_DETAILS, { show: item.show, onGoBack: this.onGoBack })}
+              onPress={() =>
+                navigation.navigate(STARGATE_DETAILS, {
+                  show: item.show,
+                  onGoBack: this.onGoBack,
+                })
+              }
             />
           ))}
         </Layout>
       </View>
-    )
+    );
   }
 }

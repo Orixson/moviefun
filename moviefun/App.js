@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { createDrawerNavigator } from 'react-navigation'
+import { createDrawerNavigator } from 'react-navigation-drawer'
+import { createAppContainer } from 'react-navigation';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import One from './src/screen1'
 import Two from './src/screen2'
 import Three from './src/screen3'
 import { BLUE } from './constants'
 
-export default createDrawerNavigator(
+const RootStack = createDrawerNavigator(
   {
     Screen1: {
       screen: One,
@@ -40,3 +41,5 @@ export default createDrawerNavigator(
     }
   }
 )
+
+export default App = createAppContainer(RootStack);
