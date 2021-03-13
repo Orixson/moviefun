@@ -16,16 +16,16 @@ export default class Main extends Component {
 
   componentDidMount = async () => {
     try {
-      const response = await fetch(url)
-      const data = await response.json()
-      this.setState({ data })
+      const response = await fetch(url);
+      const data = await response.json();
+      this.setState({ data });
     } catch (e) {
       throw e;
     }
   };
 
-  onGoBack = (someDataFromChildren) => {
-    console.log('someDataFromChildren', someDataFromChildren) //eslint-disable-line
+  onGoBack = someDataFromChildren => {
+    console.log('someDataFromChildren', someDataFromChildren); //eslint-disable-line
   };
 
   render() {
@@ -41,7 +41,7 @@ export default class Main extends Component {
           leftColor={WHITE}
         />
         <Layout>
-          {data.map((item) => (
+          {data.map(item => (
             <ImageCard
               data={item.show}
               key={item.show.id}

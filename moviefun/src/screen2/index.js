@@ -1,7 +1,7 @@
-import { createStackNavigator } from "react-navigation-stack";
-import HomeScreen from "./HomeScreen";
-import DetailsScreen from "./DelailsScreen";
-import { BATMAN_HOME, BATMAN_DETAILS } from "../routes";
+import { createStackNavigator } from 'react-navigation-stack';
+import HomeScreen from './HomeScreen';
+import DetailsScreen from './DelailsScreen';
+import { BATMAN_HOME, BATMAN_DETAILS } from '../routes';
 
 export default createStackNavigator(
   {
@@ -10,6 +10,6 @@ export default createStackNavigator(
   },
   {
     initialRouteName: BATMAN_HOME,
-    headerMode: "none",
-  }
+    headerMode: 'none',
+  },
 );

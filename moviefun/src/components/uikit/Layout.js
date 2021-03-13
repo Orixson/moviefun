@@ -1,13 +1,13 @@
-import React from 'react'
-import { View, StyleSheet, ScrollView } from 'react-native'
+import React from 'react';
+import { View, StyleSheet, ScrollView } from 'react-native';
 
 const Layout = props => {
   return (
     <ScrollView>
       <View style={styles.container}>{props.children}</View>
     </ScrollView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     flexShrink: 2,
     justifyContent: 'space-around',
     padding: 10,
-    marginBottom: 150
-  }
-})
+    marginBottom: 150,
+  },
+});
 
 export default Layout;

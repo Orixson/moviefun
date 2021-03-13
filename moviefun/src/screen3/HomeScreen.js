@@ -1,32 +1,32 @@
-import React, { Component } from 'react'
-import { View } from 'react-native'
-import Header from '../components/uikit/Header'
-import Layout from '../components/uikit/Layout'
-import ImageCard from '../components/uikit/ImageCard'
-import { SPIDER_DETAILS } from '../routes'
-import { WHITE, BLUE } from '../../constants'
+import React, { Component } from 'react';
+import { View } from 'react-native';
+import Header from '../components/uikit/Header';
+import Layout from '../components/uikit/Layout';
+import ImageCard from '../components/uikit/ImageCard';
+import { SPIDER_DETAILS } from '../routes';
+import { WHITE, BLUE } from '../../constants';
 
-const url = 'http://api.tvmaze.com/search/shows?q=spider-man'
+const url = 'http://api.tvmaze.com/search/shows?q=spider-man';
 
 export default class Main extends Component {
   state = {
     title: 'SPIDER MAN',
-    data: []
-  }
+    data: [],
+  };
 
   componentDidMount = async () => {
     try {
-      const response = await fetch(url)
-      const data = await response.json()
-      this.setState({ data })
+      const response = await fetch(url);
+      const data = await response.json();
+      this.setState({ data });
     } catch (e) {
-      throw e
+      throw e;
     }
-  }
+  };
 
   render() {
-    const { title, data } = this.state
-    const { navigation } = this.props
+    const { title, data } = this.state;
+    const { navigation } = this.props;
     return (
       <View>
         <Header
@@ -46,6 +46,6 @@ export default class Main extends Component {
           ))}
         </Layout>
       </View>
-    )
+    );
   }
 }

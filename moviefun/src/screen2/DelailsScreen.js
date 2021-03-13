@@ -1,14 +1,14 @@
-import React, { PureComponent } from 'react'
-import { View, ScrollView, Text, StyleSheet } from 'react-native'
-import Header from '../components/uikit/Header'
-import ImageBigCard from '../components/uikit/ImageBigCard'
-import { WHITE, BLUE, w } from '../../constants'
+import React, { PureComponent } from 'react';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import Header from '../components/uikit/Header';
+import ImageBigCard from '../components/uikit/ImageBigCard';
+import { WHITE, BLUE, w } from '../../constants';
 
 export default class DelailsScreen extends PureComponent {
   render() {
-    const { image, name, summary } = this.props.navigation.state.params
-    const { navigation } = this.props
-    const data = { image, name }
+    const { image, name, summary } = this.props.navigation.state.params;
+    const { navigation } = this.props;
+    const data = { image, name };
     return (
       <View style={styles.container}>
         <Header
@@ -27,31 +27,31 @@ export default class DelailsScreen extends PureComponent {
           </View>
         </ScrollView>
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: WHITE
+    backgroundColor: WHITE,
   },
   sub: {
     flex: 1,
     alignItems: 'center',
     marginBottom: 150,
-    backgroundColor: WHITE
+    backgroundColor: WHITE,
   },
   h1: {
     fontFamily: 'AvenirNext-DemiBold',
     fontSize: 30,
     padding: 15,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   h2: {
     fontFamily: 'AvenirNext-DemiBold',
     fontSize: 15,
     textAlign: 'center',
     color: 'grey',
-    paddingHorizontal: 15
-  }
-})
+    paddingHorizontal: 15,
+  },
+});
