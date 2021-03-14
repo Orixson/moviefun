@@ -6,11 +6,10 @@ import ImageCard from '../components/uikit/ImageCard';
 import { STARGATE_DETAILS } from '../routes';
 import { WHITE, BLUE } from '../../constants';
 
-const url = 'http://api.tvmaze.com/search/shows?q=stargate';
-
-export default HomeScreen = ({ navigation }) => {
-  const [title] = useState('STAR GATE');
+export default HomeScreen = ({ navigation, route }) => {
   const [data, setData] = useState([]);
+
+  const url = `http://api.tvmaze.com/search/shows?q=${route.params.url}`;
 
   useEffect(async () => {
     try {
@@ -24,13 +23,7 @@ export default HomeScreen = ({ navigation }) => {
 
   return (
     <View>
-      <Header
-        title={title}
-        headerColor={BLUE}
-        onPress={() => navigation.openDrawer()}
-        leftIcon="ios-menu"
-        leftColor={WHITE}
-      />
+      <Header title={route.name} headerColor={BLUE} />
       <Layout>
         {data.map(item => (
           <ImageCard

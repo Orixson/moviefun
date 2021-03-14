@@ -1,22 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import Header from '../components/uikit/Header';
 import ImageBigCard from '../components/uikit/ImageBigCard';
 import { WHITE, BLUE, w } from '../../constants';
 
-export default DelailsScreen = show => {
-  console.log(show);
-  useEffect(() => {
-    return () => {
-      const { onGoBack } = props.navigation.state.params;
-      onGoBack && onGoBack('Hello from children');
-    };
-  }, []);
-
-  // const { show } = props.navigation.state.params;
-  const { image, name, summary } = show;
-  const { navigation } = props;
+export default DelailsScreen = ({ navigation, route }) => {
+  const { image, name, summary } = route.params.show;
   const data = { image, name };
+
   return (
     <View style={styles.container}>
       <Header

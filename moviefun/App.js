@@ -4,8 +4,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import One from './src/screen1';
-import Two from './src/screen2';
-import Three from './src/screen3';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,20 +19,23 @@ const AppStack = () => {
         options={{
           tabBarIcon: ({ color, size }) => <Ionicons name="ios-add-circle" />,
         }}
+        initialParams={{ url: 'stargate' }}
       />
       <Tab.Screen
         name="Batman"
-        component={Two}
+        component={One}
         options={{
           tabBarIcon: ({ color, size }) => <Ionicons name="ios-add-circle" />,
         }}
+        initialParams={{ url: 'batman' }}
       />
       <Tab.Screen
         name="Spiderman"
-        component={Three}
+        component={One}
         options={{
           tabBarIcon: ({ color, size }) => <Ionicons name="ios-add-circle" />,
         }}
+        initialParams={{ url: 'spider-man' }}
       />
     </Tab.Navigator>
   );
