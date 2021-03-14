@@ -1,14 +1,15 @@
-import React, {useEffect} from 'react';
-import {View, Button, ScrollView, Text, StyleSheet} from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Button, ScrollView, Text, StyleSheet } from 'react-native';
 import Header from '../components/uikit/Header';
 import ImageBigCard from '../components/uikit/ImageBigCard';
-import {WHITE, BLUE, w} from '../../constants';
-import {STARGATE_HOME} from '../routes';
+import { WHITE, BLUE, w } from '../../constants';
+import { STARGATE_HOME } from '../routes';
 
-export default DelailsScreen = props => {
-  const {image, name, summary} = props.navigation.state.params;
-  const {navigation} = props;
-  const data = {image, name};
+export default DelailsScreen = ({ navigation }, props) => {
+  console.log(navigation);
+  console.log(props);
+  const { image, name, summary } = navigation.state.params;
+  const data = { image, name };
   return (
     <View style={styles.container}>
       <Header

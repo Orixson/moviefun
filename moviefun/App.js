@@ -1,51 +1,50 @@
 import React from 'react';
-import {createDrawerNavigator} from 'react-navigation-drawer';
-import {createAppContainer} from 'react-navigation';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import One from './src/screen1';
 import Two from './src/screen2';
 import Three from './src/screen3';
-import {BLUE} from './constants';
 
-const RootStack = createDrawerNavigator(
-  {
-    Screen1: {
-      screen: One,
-      navigationOptions: {
-        drawerLabel: 'Star Gate',
-        drawerIcon: ({tintColor}) => (
-          <MaterialIcons name="grade" size={24} style={{color: tintColor}} />
-        ),
-      },
-    },
-    Screen2: {
-      screen: Two,
-      navigationOptions: {
-        drawerLabel: 'Batman',
-        drawerIcon: ({tintColor}) => (
-          <MaterialIcons name="favorite" size={24} style={{color: tintColor}} />
-        ),
-      },
-    },
-    Screen3: {
-      screen: Three,
-      navigationOptions: {
-        drawerLabel: 'Spiderman',
-        drawerIcon: ({tintColor}) => (
-          <MaterialIcons name="pets" size={24} style={{color: tintColor}} />
-        ),
-      },
-    },
-  },
-  {
-    initialRouteName: 'Screen1',
-    contentOptions: {
-      activeTintColor: BLUE,
-      itemsContainerStyle: {
-        marginVertical: 65,
-      },
-    },
-  },
-);
+const Tab = createBottomTabNavigator();
 
-export default App = createAppContainer(RootStack);
+const AppStack = () => {
+  return (
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: '#2e64e5',
+      }}>
+      <Tab.Screen
+        name="Stargate"
+        component={One}
+        options={{
+          tabBarIcon: ({ color, size }) => <Ionicons name="ios-add-circle" />,
+        }}
+      />
+      <Tab.Screen
+        name="Batman"
+        component={Two}
+        options={{
+          tabBarIcon: ({ color, size }) => <Ionicons name="ios-add-circle" />,
+        }}
+      />
+      <Tab.Screen
+        name="Spiderman"
+        component={Three}
+        options={{
+          tabBarIcon: ({ color, size }) => <Ionicons name="ios-add-circle" />,
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <AppStack />
+    </NavigationContainer>
+  );
+};
+export default App;

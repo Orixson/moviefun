@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react';
-import {View} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View } from 'react-native';
 import Header from '../components/uikit/Header';
 import Layout from '../components/uikit/Layout';
 import ImageCard from '../components/uikit/ImageCard';
-import {STARGATE_DETAILS} from '../routes';
-import {WHITE, BLUE} from '../../constants';
+import { STARGATE_DETAILS } from '../routes';
+import { WHITE, BLUE } from '../../constants';
 
 const url = 'http://api.tvmaze.com/search/shows?q=stargate';
 
-export default HomeScreen = ({navigation}) => {
+export default HomeScreen = ({ navigation }) => {
   const [title] = useState('STAR GATE');
   const [data, setData] = useState([]);
 
@@ -39,7 +39,6 @@ export default HomeScreen = ({navigation}) => {
             onPress={() =>
               navigation.navigate(STARGATE_DETAILS, {
                 show: item.show,
-                onGoBack: this.onGoBack,
               })
             }
           />
