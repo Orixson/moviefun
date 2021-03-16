@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
-import Header from '../components/uikit/Header';
-import ImageBigCard from '../components/uikit/ImageBigCard';
+import { Header, ImageBigCard } from '../components';
 import { WHITE, BLUE, w } from '../../constants';
 
 export default DelailsScreen = ({ navigation, route }) => {

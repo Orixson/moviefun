@@ -2,7 +2,7 @@ import React from 'react'
 import { TouchableOpacity, TextInput, View, StyleSheet } from 'react-native'
 import { ifIphoneX } from 'react-native-iphone-x-helper'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { BLUE, W } from '../../../constants'
+import { BLUE, w } from '../../constants'
 
 const styles = StyleSheet.create({
   container: {
@@ -28,14 +28,14 @@ const styles = StyleSheet.create({
     marginTop: 40,
     alignItems: 'center',
     flexDirection: 'row',
-    width: W - 35,
+    width: w - 35,
     backgroundColor: '#fff',
     height: 40,
     borderRadius: 20
   },
   inputStyle: {
     fontSize: 18,
-    width: W - 90,
+    width: w - 90,
     marginLeft: 15,
     backgroundColor: '#fff'
   },
